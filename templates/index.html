@@ -1,0 +1,21 @@
+<!-- 头部和配置界面保持不变 -->
+<!-- 在仪表盘主体里新增Skills卡片区（放在持仓可视化上方） -->
+<div class="glass rounded-3xl p-8 mb-8">
+    <h2 class="text-xl mb-6 flex justify-between"><span>🛠️ GMGN kime-Skills ai 已解锁</span><span class="text-xs opacity-60">实时高亮</span></h2>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4" id="skills_grid"></div>
+</div>
+
+<!-- JavaScript Skills卡片 -->
+<script>
+function updateSkills(skills) {
+    const grid = document.getElementById('skills_grid');
+    grid.innerHTML = skills.map(skill => `
+        <div class="glass rounded-2xl p-4 text-center border border-[#00ff9d]/30 hover:border-[#00ff9d] transition">
+            <div class="text-4xl mb-2">🚀</div>
+            <div class="font-bold text-lg">${skill}</div>
+            <div class="text-xs text-green-400">● 已激活</div>
+        </div>
+    `).join('');
+}
+// 在updateDashboard()里添加： updateSkills(data.skills_unlocked);
+</script>
